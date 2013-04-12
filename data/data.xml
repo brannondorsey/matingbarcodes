@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<levels>
+    <level>
+        <levelNumber>one</levelNumber>
+        <objective>mate a taller community</objective>
+        <requirement>
+            <type>size</type>
+            <neededToPass>5</neededToPass>
+            <targetValue>47</targetValue>
+        </requirement>
+    </level>
+    <level>
+        <levelNumber>two</levelNumber>
+        <objective>mate a faster community</objective>
+        <requirement>
+            <type>speed</type>
+            <neededToPass>6</neededToPass>
+            <targetValue>5</targetValue>
+        </requirement>
+    </level>
+    <level>
+        <levelNumber>three</levelNumber>
+        <objective>mate a multi-colored community</objective>
+        <requirement>
+            <type>color</type>
+            <neededToPass>5</neededToPass>
+            <targetValue>30</targetValue>
+        </requirement>
+    </level>
+    <level>
+        <levelNumber>four</levelNumber>
+        <objective>mate an elderly community</objective>
+        <requirement>
+            <type>lifespan</type>
+            <neededToPass>7</neededToPass>
+            <targetValue>30000</targetValue>
+        </requirement>
+    </level>
+    <level>
+        <levelNumber>five</levelNumber>
+        <objective>mate a really tall but slow community</objective>
+        <requirement>
+            <type>size</type>
+            <neededToPass>6</neededToPass>
+            <targetValue>80</targetValue>
+        </requirement>
+        <requirement>
+            <type>-speed</type>
+            <neededToPass>6</neededToPass>
+            <targetValue>2</targetValue>
+        </requirement>
+    </level>
+</levels>
