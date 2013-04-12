@@ -3,10 +3,10 @@ class Level{
   String objective;
   String[] type;
   int[] neededToPass;
-  int[] targetValue;
+  float[] targetValue;
   
   //levels[i] = new Level(levelNumber, objective, type, neededToPass, targetValue);
-  Level(String _levelNumber, String _objective, String[] _type, int[] _neededToPass, int[] _targetValue){
+  Level(String _levelNumber, String _objective, String[] _type, int[] _neededToPass, float[] _targetValue){
     levelNumber = _levelNumber;
     objective = _objective;
     type = _type;

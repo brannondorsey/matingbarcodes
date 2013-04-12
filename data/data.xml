@@ -2,15 +2,24 @@
 <levels>
     <level>
         <levelNumber>one</levelNumber>
-        <objective>mate a taller community</objective>
+        <objective>mate a bulky community</objective>
         <requirement>
-            <type>size</type>
+            <type>scale</type>
             <neededToPass>5</neededToPass>
-            <targetValue>47</targetValue>
+            <targetValue>2.5</targetValue>
         </requirement>
     </level>
     <level>
         <levelNumber>two</levelNumber>
+        <objective>mate a proportionately taller community</objective>
+        <requirement>
+            <type>tall</type>
+            <neededToPass>5</neededToPass>
+            <targetValue>50</targetValue>
+        </requirement>
+    </level>
+    <level>
+        <levelNumber>three</levelNumber>
         <objective>mate a faster community</objective>
         <requirement>
             <type>speed</type>
@@ -19,7 +28,7 @@
         </requirement>
     </level>
     <level>
-        <levelNumber>three</levelNumber>
+        <levelNumber>four</levelNumber>
         <objective>mate a multi-colored community</objective>
         <requirement>
             <type>color</type>
@@ -28,7 +37,7 @@
         </requirement>
     </level>
     <level>
-        <levelNumber>four</levelNumber>
+        <levelNumber>five</levelNumber>
         <objective>mate an elderly community</objective>
         <requirement>
             <type>lifespan</type>
@@ -37,10 +46,10 @@
         </requirement>
     </level>
     <level>
-        <levelNumber>five</levelNumber>
+        <levelNumber>six</levelNumber>
         <objective>mate a really tall but slow community</objective>
         <requirement>
-            <type>size</type>
+            <type>tall</type>
             <neededToPass>6</neededToPass>
             <targetValue>80</targetValue>
         </requirement>

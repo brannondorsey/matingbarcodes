@@ -2,8 +2,8 @@ class Barcode {
   PVector loc ;
   PVector velocity;
   float speed;
-  int tSize;
-  float wSize;
+  int tall;
+  float scale;
   int lifeEx;
   color c;
   float opacity;
@@ -16,9 +16,9 @@ class Barcode {
 
   boolean mating = false;
 
-  Barcode(float _wSize, int _tSize, int _lifeEx, float _speed, String _text, color _c) {
-    tSize = _tSize;
-    wSize = _wSize;
+  Barcode(float _scale, int _tall, int _lifeEx, float _speed, String _text, color _c) {
+    tall = _tall;
+    scale = _scale;
     text = _text;
     lifeEx = _lifeEx;
     speed = _speed;
@@ -27,10 +27,10 @@ class Barcode {
     textFont(font);
     c = _c;
     String hexC = hex(_c, 6); 
-    String[] html = loadStrings("http://localhost:8888/barcodes/barcode.php?code="+text+"&width="+wSize+"&height="+tSize+"&color="+hexC);
+    String[] html = loadStrings("http://localhost:8888/barcodes/barcode.php?code="+text+"&scale="+scale+"&height="+tall+"&color="+hexC);
     bar = loadImage("http://localhost:8888/barcodes/images/"+text+".png");
     int x = int(random(width-bar.width));
-    int y = int(random(info.rectHeight, height-tSize));
+    int y = int(random(info.rectHeight, height-tall));
     loc = new PVector(x, y);
     velocity = new PVector(0, 0);
 
@@ -38,7 +38,7 @@ class Barcode {
     life.start();
 
     //    println("Barcode "+text+" statistics:");
-    //    println("size "+tSize);
+    //    println("size "+tall);
     //    println("speed "+speed);
     //    println("life expectantcy "+lifeEx);
     //    println();
@@ -52,8 +52,9 @@ class Barcode {
     else if (rand == 2) velocity.y += speed;
     else velocity.y -= speed;
     loc.add(velocity);
-    loc.y = constrain(loc.y, info.rectHeight, height-tSize);
+    loc.y = constrain(loc.y, info.rectHeight, height-tall);
     loc.x = constrain(loc.x, 0, width-bar.width);
+    println("barcode scale is "+scale);
 
     //barcode fades as it begins to die
     opacity = map(life.percentComplete(), 0, 1, 0, 255);

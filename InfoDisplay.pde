@@ -7,40 +7,40 @@ class InfoDisplay {
   color warningColor = #A00000;
 
   PFont font;
-  int tSize;
+  int tall;
 
   Timer timer;
   boolean timerGoing = false;
 
 
   InfoDisplay() {
-    tSize = 30; 
-    font = createFont("visitor TT2 BRK", tSize);
+    tall = 30; 
+    font = createFont("visitor TT2 BRK", tall);
     timer = new Timer(3000);
   }
 
   //    println("total population is "+total);
-  //    println("Average size is "+avgSize);
+  //    println("Average size is "+avgHeight);
   //    println("Average speed is "+avgSpeed);
   //    println("Average life expectantcy is "+avgLifeEx);
   //    println();
 
   void displayStats() {
     textFont(font);
-    textSize(tSize);
+    textSize(tall);
     fill(0);
     rect(0, 0, width, rectHeight);
     fill(255);
-    text("total population: "+stats.total+"  average size: "+String.format("%.2f", stats.avgSize)+"  average speed: "+String.format("%.2f", stats.avgSpeed)+"  average life span: "+String.format("%.2f", stats.avgLifeEx/1000)+" sec", startLine, (rectHeight/2)+(tSize/3));
+    text("population stats /   population: "+stats.total+" | size: "+String.format("%.2f", stats.avgScale)+" | height: "+String.format("%.2f", stats.avgTall)+" | speed: "+String.format("%.2f", stats.avgSpeed)+" | lifespan: "+String.format("%.2f", stats.avgLifeEx/1000)+" sec", startLine, (rectHeight/2)+(tall/3));
   }
 
   void displayLevelInfo() {
     textFont(font);
     float fontIncrease = 1.5;
-    textSize(tSize*fontIncrease);
+    textSize(tall*fontIncrease);
     fill(0);
     Level currentLevel = levelCont.levels[levelCont.curLevel];
-    text("Level "+currentLevel.levelNumber+" / "+currentLevel.objective+" / "+stats.percentLevelComplete()+"% complete", startLine, height-tSize);
+    text("Level "+currentLevel.levelNumber+" | "+currentLevel.objective, startLine, height-tall);
   }
 
   void startTimer() {
@@ -53,16 +53,16 @@ class InfoDisplay {
     if (timerGoing) {
       fill(0);
       float fontIncrease = 2;
-      textSize(tSize*fontIncrease);
+      textSize(tall*fontIncrease);
       rect(0, 0, width, height);
       Level currentLevel = levelCont.levels[levelCont.curLevel];
       String levelText = "Level "+currentLevel.levelNumber;
       String objectiveText = currentLevel.objective;
       float textWide = textWidth(levelText);
       fill(255);
-      text(levelText, width/2-textWide/2, (height/2)-(tSize*fontIncrease));
+      text(levelText, width/2-textWide/2, (height/2)-(tall*fontIncrease));
       textWide = textWidth(objectiveText);
-      text(objectiveText, width/2-textWide/2, (height/2+tSize*fontIncrease)-(tSize*fontIncrease));
+      text(objectiveText, width/2-textWide/2, (height/2+tall*fontIncrease)-(tall*fontIncrease));
     }
     if (timerGoing && timer.isFinished()) {
       timerGoing = false;
@@ -77,7 +77,7 @@ class InfoDisplay {
       fill(255);
       String text = "overpopulated";
       float textWide = textWidth(text);
-      text(text, width-textWide-startLine, (rectHeight/2)+(tSize/3)+rectHeight);
+      text(text, width-textWide-startLine, (rectHeight/2)+(tall/3)+rectHeight);
     
   }
 }

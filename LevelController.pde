@@ -8,7 +8,7 @@ class LevelController {
   Level[] levels;
 
   LevelController() {
-    curLevel = 4;
+    curLevel = 1; //number for level you want
     curLevel -= 1;
   }
 
@@ -21,7 +21,8 @@ class LevelController {
 
     for (int i = 0; i<currentLevel.type.length; i++) {
       float requirement = 0;
-      if(currentLevel.type[i].equals("size") || currentLevel.type[i].equals("-size")) requirement = stats.avgSize;
+      if(currentLevel.type[i].equals("tall") || currentLevel.type[i].equals("-tall")) requirement = stats.avgTall;
+      else if(currentLevel.type[i].equals("scale") || currentLevel.type[i].equals("-scale")) requirement = stats.avgScale;
       else if(currentLevel.type[i].equals("speed") || currentLevel.type[i].equals("-speed")) requirement = stats.avgSpeed;
       else if(currentLevel.type[i].equals("lifespan") || currentLevel.type[i].equals("-lifespan")) requirement = stats.avgLifeEx;
       println("the current avg is "+requirement);

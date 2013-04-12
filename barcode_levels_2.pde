@@ -60,9 +60,6 @@ void draw() {
   }
   info.displayLevelScreen();
   clicked = false;
-//  println("Average red is "+stats.avgRed);
-//  println("Average green is "+stats.avgGreen);
-//  println("Average blue is "+stats.avgBlue);
 }
 
 void keyPressed() {

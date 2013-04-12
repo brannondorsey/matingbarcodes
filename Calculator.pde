@@ -1,5 +1,6 @@
 class Calculator {
-  float avgSize;
+  float avgTall;
+  float avgScale;
   float avgSpeed;
   float avgLifeEx;
   float avgRed;
@@ -11,7 +12,8 @@ class Calculator {
   }
 
   void clearAvgs() {
-    avgSize   = 0;
+    avgTall   = 0;
+    avgScale  = 0;
     avgSpeed  = 0;
     avgLifeEx = 0;
     avgRed    = 0;
@@ -21,14 +23,16 @@ class Calculator {
 
   void addAvgs(int i) {
     Barcode currentBarcode = (Barcode) creator.barcodes.get(i);
-    int tSize = currentBarcode.tSize;
+    int tall = currentBarcode.tall;
+    float scale = currentBarcode.scale;
     int lifeEx = currentBarcode.lifeEx;
     float speed = currentBarcode.speed;
     int red = (int) red(currentBarcode.c);
     int green = (int) green(currentBarcode.c);
     int blue = (int) blue(currentBarcode.c);
     println(red);
-    avgSize   += tSize;
+    avgTall   += tall;
+    avgScale  += scale;
     avgSpeed  += speed;
     avgLifeEx += lifeEx;
     avgRed    += red;
@@ -40,7 +44,8 @@ class Calculator {
     total = creator.barcodes.size();
     if (creator.barcodes.size() == 0) clearAvgs();
     else {
-      avgSize   /= total;
+      avgTall   /= total;
+      avgScale  /= total;
       avgSpeed  /= total;
       avgLifeEx /= total;
       avgRed    /= total;
@@ -49,32 +54,22 @@ class Calculator {
     }
   }
 
-  float percentLevelComplete() {
-    float requirement = 0;
-    float percentTotal = 0;
-    Level currentLevel = levelCont.levels[levelCont.curLevel];
-    float[] percent = new float[currentLevel.type.length];
-    for (int i = 0; i < percent.length; i++) {
-      if (currentLevel.type[i].equals("speed")) requirement = avgSpeed;
-      else if (currentLevel.type[i].equals("size")) requirement = avgSize;
-      percent[i] = requirement/currentLevel.targetValue[i];
-      percentTotal += percent[i];
-    }
-    float percentAverage = percentTotal/percent.length;
-    percentTotal = int(percentTotal*100); 
-    return percentTotal;
-  }
-
-  //  int percentLevelComplete(){
-  //    //do for each requirement and then devide by numbers of total requirements
-  //    int numThatPass = 0;
-  ////    for(int i = 0; i < levelCont.levels[levelCont.curLevel]; i++){
-  ////      numThatPass++;
-  ////    }
-  //    int percent = 0;
-  //    if(numThatPass != 0) percent = (int) total/numThatPass;
-  //    percent = int(map(percent, 0, 1, 0, 100));
-  //    return percent;
-  //  }
+//+" / "+stats.percentLevelComplete()+"% complete"
+//^^ for text in infodisplay
+//  float percentLevelComplete() {
+//    float requirement = 0;
+//    float percentTotal = 0;
+//    Level currentLevel = levelCont.levels[levelCont.curLevel];
+//    float[] percent = new float[currentLevel.type.length];
+//    for (int i = 0; i < percent.length; i++) {
+//      if (currentLevel.type[i].equals("speed")) requirement = avgSpeed;
+//      else if (currentLevel.type[i].equals("tall")) requirement = avgTall;
+//      percent[i] = requirement/currentLevel.targetValue[i];
+//      percentTotal += percent[i];
+//    }
+//    float percentAverage = percentTotal/percent.length;
+//    percentTotal = int(percentTotal*100); 
+//    return percentTotal;
+//  }
 }
 

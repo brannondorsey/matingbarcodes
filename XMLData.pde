@@ -24,7 +24,7 @@ class XMLData {
       int index = data[i].countChildren()-2;
       String[] type = new String[index];
       int[] neededToPass = new int[index];
-      int[] targetValue = new int[index];
+      float[] targetValue = new float[index];
 
       for (int j = 0; j < index; j++) {
         XMLElement requirement = data[i].getChild(2+j);
@@ -33,7 +33,7 @@ class XMLData {
         XMLElement neededToPassNode = requirement.getChild(1);
         neededToPass[j] = int(neededToPassNode.getChild(0).getText());
         XMLElement targetValueNode = requirement.getChild(2);
-        targetValue[j] = int(targetValueNode.getChild(0).getText());
+        targetValue[j] = float(targetValueNode.getChild(0).getText());
       }
       levelCont.levels[i] = new Level(levelNumber, objective, type, neededToPass, targetValue);
     }

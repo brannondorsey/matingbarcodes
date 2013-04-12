@@ -2,23 +2,29 @@ class Creator {
   Random generator;
   ArrayList barcodes;
   ArrayList mateQueue;
-  
-  // max population
+
+  //max population
   int maxPop = 10;
 
-  //size
-  int avgSize     = 30;
-  int sizeStdDev  = 10;
-  
-  float avgWidth    = 2;
-  float widthStdDev = .3;
+  //tall
+  int avgTall     = 30;
+  int tallStdDev  = 7;
+  int OrigAvgTall, OrigTallStdDev;
 
+  //scale
+  float avgScale    = 2;
+  float scaleStdDev = .2;
+  float OrigAvgScale, OrigScaleStdDev;
+
+  //speed
   float avgSpeed    = 1.5;
   float speedStdDev = .5;
+  float OrigAvgSpeed, OrigSpeedStdDev;
 
   //life expectancy
   int avgLifeEx  = 15000; 
   int lifeStdDev = 5000;
+  int OrigLifeExTall, OrigLifeStdDev;
 
   //color 
   int avgR = 0;
@@ -31,13 +37,22 @@ class Creator {
 
   Creator() {
     generator = new Random();
-    barcodes = new ArrayList();
+    barcodes  = new ArrayList();
     mateQueue = new ArrayList();
+    OrigAvgTall      = avgTall;
+    OrigTallStdDev   = tallStdDev;
+    OrigAvgScale     = avgScale;
+    OrigScaleStdDev  = scaleStdDev;
+    OrigAvgSpeed     = avgSpeed;
+    OrigSpeedStdDev  = speedStdDev;
+    OrigLifeExTall   = avgLifeEx;
+    OrigLifeStdDev = lifeStdDev;
   }
 
   //mates two barcode creatures
   void mate(Barcode male, Barcode female) {
-    avgSize = max(male.tSize, female.tSize);
+    avgTall = max(male.tall, female.tall);
+    avgScale = max(male.scale, female.scale);
     avgLifeEx = max(male.lifeEx, female.lifeEx);
     avgSpeed = max(male.speed, female.speed);
 
@@ -62,13 +77,13 @@ class Creator {
         avgR = int(max(red(male.c), red(female.c)));
         avgG = int(max(green(male.c), green(female.c)));
         avgB = int(max(blue(male.c), blue(female.c)));
-//        println("the avg red is: "+avgR);
-//        println("the avg green is: "+avgG);
-//        println("the avg blue is: "+avgB);
+        //        println("the avg red is: "+avgR);
+        //        println("the avg green is: "+avgG);
+        //        println("the avg blue is: "+avgB);
       }
       else {
         setToBlack();
-       //println("both colors are not black, but black took over");
+        //println("both colors are not black, but black took over");
       }
     }
 
@@ -104,19 +119,19 @@ class Creator {
 
   //births new barcode creature
   void newBarcode(String text) {
-    int tSize = (int) generator.nextGaussian()*sizeStdDev+avgSize;
-    float wSize = (int) generator.nextGaussian()*widthStdDev+avgWidth;
+    int tall = (int) generator.nextGaussian()*tallStdDev+avgTall;
+    float scale = (int) generator.nextGaussian()*scaleStdDev+avgScale;
     int lifeEx = (int) generator.nextGaussian()*lifeStdDev+avgLifeEx;
     float speed = (float) generator.nextGaussian()*speedStdDev+avgSpeed;
     int r = (int) generator.nextGaussian()*colorStdDev+avgR;
     int g = (int) generator.nextGaussian()*colorStdDev+avgG;
     int b = (int) generator.nextGaussian()*colorStdDev+avgB;
     color c = color(r, g, b);
-    //Barcode(int _tSize, int _lifeEx, int _speed, String _text, Color c)
-    barcodes.add(new Barcode(wSize ,tSize, lifeEx, speed, text, c));
+    //Barcode(int _tall, int _lifeEx, int _speed, String _text, Color c)
+    barcodes.add(new Barcode(scale, tall, lifeEx, speed, text, c));
   }
 
-  void resetBarcodes(){
+  void resetBarcodes() {
     int index = barcodes.size()-1;
     Barcode last = (Barcode) barcodes.get(index);
     Barcode secondToLast = (Barcode) barcodes.get(index-1);
@@ -128,17 +143,17 @@ class Creator {
     newBarcode(text1);
     newBarcode(text2);
   }
-  
+
   //kills barcode creature
   void kill(Barcode currentBarcode) {
     barcodes.remove(currentBarcode);
   }
-  
-  boolean isOverPopulated(){
-   if(barcodes.size() >= maxPop){
-     return true;
-   }
-   else return false;
+
+  boolean isOverPopulated() {
+    if (barcodes.size() >= maxPop) {
+      return true;
+    }
+    else return false;
   }
 
   void setToBlack() {
@@ -146,24 +161,22 @@ class Creator {
     avgG = 0;
     avgB = 0;
   }
-  
-  void resetAvgs(){
-    //size
-  avgSize     = 30;
-  sizeStdDev  = 10;
 
-  avgSpeed    = 1.5;
-  speedStdDev = .5;
-
-  //life expectancy
-  avgLifeEx  = 15000; 
-  lifeStdDev = 5000;
-
-  //color 
-  avgR = 0;
-  avgG = 0;
-  avgB = 0;
-  colorStdDev = 40;
+  void resetAvgs() {
+    avgTall      = OrigAvgTall;
+    tallStdDev   = OrigTallStdDev;
+    avgScale     = OrigAvgScale;
+    scaleStdDev  = OrigScaleStdDev;
+    avgSpeed     = OrigAvgSpeed;
+    speedStdDev  = OrigSpeedStdDev;
+    avgLifeEx    = OrigLifeExTall;
+    lifeStdDev = OrigLifeStdDev; 
+    
+    //color 
+    avgR = 0;
+    avgG = 0;
+    avgB = 0;
+    colorStdDev = 40;
   }
 }
 
