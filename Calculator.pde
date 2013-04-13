@@ -30,7 +30,6 @@ class Calculator {
     int red = (int) red(currentBarcode.c);
     int green = (int) green(currentBarcode.c);
     int blue = (int) blue(currentBarcode.c);
-    println(red);
     avgTall   += tall;
     avgScale  += scale;
     avgSpeed  += speed;
