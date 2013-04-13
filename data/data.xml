@@ -2,7 +2,7 @@
 <levels>
     <level>
         <levelNumber>one</levelNumber>
-        <objective>mate a bulky community</objective>
+        <objective>mate a larger community</objective>
         <requirement>
             <type>scale</type>
             <neededToPass>5</neededToPass>

@@ -25,9 +25,9 @@ class LevelController {
       else if(currentLevel.type[i].equals("scale") || currentLevel.type[i].equals("-scale")) requirement = stats.avgScale;
       else if(currentLevel.type[i].equals("speed") || currentLevel.type[i].equals("-speed")) requirement = stats.avgSpeed;
       else if(currentLevel.type[i].equals("lifespan") || currentLevel.type[i].equals("-lifespan")) requirement = stats.avgLifeEx;
-      println("the current avg is "+requirement);
-      println("the goal is "+currentLevel.targetValue[i]);
-      println("the type is  "+currentLevel.type[i]);
+//      println("the current avg is "+requirement);
+//      println("the goal is "+currentLevel.targetValue[i]);
+//      println("the type is  "+currentLevel.type[i]);
       
       if (requirement != 0) {
         if (avgPasses(requirement, currentLevel.targetValue[i], currentLevel.type[i]) &&

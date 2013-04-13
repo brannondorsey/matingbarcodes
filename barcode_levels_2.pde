@@ -9,6 +9,7 @@ Creator creator;
 Calculator stats;
 InfoDisplay info;
 LevelController levelCont;
+DataVisualization dataVis;
 
 void setup() {
   size(displayWidth, displayHeight/2);
@@ -20,6 +21,7 @@ void setup() {
   info = new InfoDisplay();
   creator = new Creator();
   levelCont = new LevelController();
+  dataVis = new DataVisualization();
 
   xmlIO = new XMLInOut(this);
   xmlIO.loadElement("data.xml");
@@ -59,13 +61,15 @@ void draw() {
     creator.resetBarcodes();
   }
   info.displayLevelScreen();
+  dataVis.printData();
+  if(dataVis.barcodesData.size() > 0) dataVis.displayData();
   clicked = false;
 }
 
 void keyPressed() {
   if (key == '\n' && 
     text.length() > 11) {
-    creator.newBarcode(text);
+    creator.newBarcode(text, "", "");
     text = "";
   }
   else text += key;

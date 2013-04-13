@@ -99,7 +99,7 @@ class Creator {
       originalName += ""+String.valueOf(int(random(10)));
     }
     String text = maleFirstName+femaleName+originalName+maleLastName;
-    newBarcode(text);
+    newBarcode(text, male.text, female.text);
   }
 
   void addToQueue(Barcode currentBarcode) {
@@ -118,7 +118,7 @@ class Creator {
   }
 
   //births new barcode creature
-  void newBarcode(String text) {
+  void newBarcode(String text, String fatherText, String motherText) {
     int tall = (int) generator.nextGaussian()*tallStdDev+avgTall;
     float scale = (int) generator.nextGaussian()*scaleStdDev+avgScale;
     int lifeEx = (int) generator.nextGaussian()*lifeStdDev+avgLifeEx;
@@ -128,7 +128,8 @@ class Creator {
     int b = (int) generator.nextGaussian()*colorStdDev+avgB;
     color c = color(r, g, b);
     //Barcode(int _tall, int _lifeEx, int _speed, String _text, Color c)
-    barcodes.add(new Barcode(scale, tall, lifeEx, speed, text, c));
+    barcodes.add(new Barcode(scale, tall, lifeEx, speed, text, c, fatherText, motherText));
+    dataVis.barcodesData.add(new Barcode(scale, tall, lifeEx, speed, text, c, fatherText, motherText));
   }
 
   void resetBarcodes() {
@@ -140,8 +141,8 @@ class Creator {
     mateQueue.clear();
     barcodes.clear();
     resetAvgs();
-    newBarcode(text1);
-    newBarcode(text2);
+    newBarcode(text1, last.fatherText, last.motherText);
+    newBarcode(text2, last.fatherText, last.motherText);
   }
 
   //kills barcode creature

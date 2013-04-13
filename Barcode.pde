@@ -2,11 +2,16 @@ class Barcode {
   PVector loc ;
   PVector velocity;
   float speed;
-  int tall;
   float scale;
+  int tall;
   int lifeEx;
   color c;
+  String fatherText;
+  String motherText;
+  
   float opacity;
+  
+  long timeStamp;
 
   String text;
   PFont font;
@@ -16,7 +21,7 @@ class Barcode {
 
   boolean mating = false;
 
-  Barcode(float _scale, int _tall, int _lifeEx, float _speed, String _text, color _c) {
+  Barcode(float _scale, int _tall, int _lifeEx, float _speed, String _text, color _c, String _fatherText, String _motherText) {
     tall = _tall;
     scale = _scale;
     text = _text;
@@ -29,11 +34,14 @@ class Barcode {
     String hexC = hex(_c, 6); 
     String[] html = loadStrings("http://localhost:8888/barcodes/barcode.php?code="+text+"&scale="+scale+"&height="+tall+"&color="+hexC);
     bar = loadImage("http://localhost:8888/barcodes/images/"+text+".png");
+    int y = int(random(info.rectHeight, height-bar.height));
     int x = int(random(width-bar.width));
-    int y = int(random(info.rectHeight, height-tall));
     loc = new PVector(x, y);
     velocity = new PVector(0, 0);
-
+    timeStamp = millis();
+    fatherText = _fatherText;
+    motherText = _motherText;
+    
     life = new Timer(lifeEx);
     life.start();
 
@@ -54,7 +62,6 @@ class Barcode {
     loc.add(velocity);
     loc.y = constrain(loc.y, info.rectHeight, height-tall);
     loc.x = constrain(loc.x, 0, width-bar.width);
-    println("barcode scale is "+scale);
 
     //barcode fades as it begins to die
     opacity = map(life.percentComplete(), 0, 1, 0, 255);
