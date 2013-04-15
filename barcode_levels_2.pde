@@ -61,7 +61,7 @@ void draw() {
     creator.resetBarcodes();
   }
   info.displayLevelScreen();
-  dataVis.printData();
+  info.displayDataVisControls();
   if(dataVis.barcodesData.size() > 0) dataVis.displayData();
   clicked = false;
 }
@@ -91,5 +91,6 @@ void mousePressed() {
       creator.addToQueue(currentBarcode);
     }
   }
+  info.clicked = true;
 }
 

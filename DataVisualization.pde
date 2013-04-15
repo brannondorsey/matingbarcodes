@@ -9,7 +9,7 @@ class DataVisualization {
   DataVisualization() {
     barcodesData = new ArrayList();
     balls = new ArrayList();
-    displayValue = "speed";
+    displayValue = "tall";
   }
 
   void displayData() {
@@ -26,9 +26,7 @@ class DataVisualization {
       Barcode currentBarcode = (Barcode) barcodesData.get(i);
       float currentType = getTypeValue(currentBarcode);
       x = map(currentBarcode.timeStamp, minDist, maxDist, 100, width-100);
-      y = mapY(currentType);//map(currentBarcode.tall, 10, 100, height, 100);
-      //float y = map(currentBarcode.tall, 0, 50, info.rectHeight, height-100);
-      //y -= height;
+      y = mapY(currentType);
       s = map(currentBarcode.scale, 1.5, 3.5, 10, 20);
       drawAncestry(i, currentBarcode);
       //Ball b = (Ball)balls.get(i);
@@ -86,11 +84,6 @@ class DataVisualization {
     line(x, y, fatherX, fatherY);
     line(x, y, motherX, motherY);
     noStroke();
-  }
-
-
-  void printData() {
-    //println("barcodesData size is "+barcodesData.size());
   }
 }
 
