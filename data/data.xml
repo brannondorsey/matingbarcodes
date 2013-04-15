@@ -2,7 +2,7 @@
 <levels>
     <level>
         <levelNumber>one</levelNumber>
-        <objective>mate a larger community</objective>
+        <objective>mate a community of large barcodes</objective>
         <requirement>
             <type>scale</type>
             <neededToPass>5</neededToPass>
@@ -47,7 +47,7 @@
     </level>
     <level>
         <levelNumber>six</levelNumber>
-        <objective>mate a really tall but slow community</objective>
+        <objective>mate a tall but slow community</objective>
         <requirement>
             <type>tall</type>
             <neededToPass>6</neededToPass>

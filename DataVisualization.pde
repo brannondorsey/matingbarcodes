@@ -1,9 +1,15 @@
 class DataVisualization {
 
+  float x, y, s, fatherX, fatherY, motherX, motherY, minDist, maxDist;
   ArrayList barcodesData;
+  float minOutput, maxOutput;
+  ArrayList balls; 
+  String displayValue;
 
   DataVisualization() {
     barcodesData = new ArrayList();
+    balls = new ArrayList();
+    displayValue = "speed";
   }
 
   void displayData() {
@@ -12,38 +18,70 @@ class DataVisualization {
     int lastIndex = barcodesData.size()-1;
     Barcode firstBarcode = (Barcode) barcodesData.get(0);
     Barcode lastBarcode = (Barcode) barcodesData.get(lastIndex);
-    float minDist = firstBarcode.timeStamp;
-    float maxDist = lastBarcode.timeStamp;
+    minDist = firstBarcode.timeStamp;
+    maxDist = lastBarcode.timeStamp;
     //make y correspond to best attributes of scale, tall, speed, etc. 
-    float y = height/2;
+
     for (int i = 0; i < barcodesData.size(); i++) {
       Barcode currentBarcode = (Barcode) barcodesData.get(i);
-      float x = map(currentBarcode.timeStamp, minDist, maxDist, 0, width-100);
+      x = map(currentBarcode.timeStamp, minDist, maxDist, 100, width-100);
+      y = mapY(currentBarcode.scale);//map(currentBarcode.tall, 10, 100, height, 100);
       //float y = map(currentBarcode.tall, 0, 50, info.rectHeight, height-100);
       //y -= height;
-      float s = map(currentBarcode.scale, 1.5, 3.5, 10, 20);
-      fill(currentBarcode.c, 100);
-      ellipse(x, y, s, s);
+      s = map(currentBarcode.scale, 1.5, 3.5, 10, 20);
       drawAncestry(i, currentBarcode);
+      //Ball b = (Ball)balls.get(i);
+      fill(currentBarcode.c);
+      ellipse(x, y, s, s);
     }
   }
 
+  float mapY(float type) {
+    getMinAndMax();
+    return map(type, minOutput, maxOutput, height-100, 100);
+  }
+
+  void getMinAndMax() {
+
+    float[] allValues = new float[barcodesData.size()];
+    for (int i = 0; i < allValues.length; i++) {
+      Barcode b = (Barcode) barcodesData.get(i);
+      allValues[i] = getTypeValue(b);
+    }
+    minOutput = min(allValues);
+    maxOutput = max(allValues);
+    println("max output is "+maxOutput);
+    println("min output is "+minOutput);
+  }
+
+  float getTypeValue(Barcode b) {
+    if (displayValue.equals("scale")) return b.scale; 
+    else if (displayValue.equals("tall")) return b.tall;
+    else if (displayValue.equals("speed")) return b.speed;
+    else return 0;
+  }
+
   void drawAncestry(int i, Barcode currentBarcode) {
-    fill(0);
-    PVector fatherPoint = new PVector(currentBarcode.loc.x, currentBarcode.loc.y);
-    PVector motherPoint = new PVector(currentBarcode.loc.x, currentBarcode.loc.y);
     int index = barcodesData.indexOf(currentBarcode);
     for (int j = 0; j < index-1; j++) {
       Barcode fatherBarcode = (Barcode) barcodesData.get(j);
       Barcode motherBarcode = (Barcode) barcodesData.get(j);
-      if (currentBarcode.text.equals(fatherBarcode.text)) { 
-        fatherPoint.set(fatherBarcode.loc.x, fatherBarcode.loc.y, 0);
-        println("father point found");
+      if (currentBarcode.fatherText.equals(fatherBarcode.text)) { 
+        fatherX = map(fatherBarcode.timeStamp, minDist, maxDist, 100, width-100);
+        fatherY = mapY(fatherBarcode.scale);
+        //fatherPoint.set(fatherBarcode.loc.x, fatherBarcode.loc.y, 0);
       }
-      if (currentBarcode.text.equals(motherBarcode.text)) motherPoint.set(motherBarcode.loc.x, motherBarcode.loc.y, 0);
+      if (currentBarcode.motherText.equals(motherBarcode.text)) {
+
+        motherX = map(motherBarcode.timeStamp, minDist, maxDist, 100, width-100);
+        motherY = mapY(motherBarcode.scale);
+        //motherPoint.set(motherBarcode.loc.x, motherBarcode.loc.y, 0);
+      }
     }
-    line(currentBarcode.loc.x, currentBarcode.loc.y, fatherPoint.x, fatherPoint.y);
-    line(currentBarcode.loc.x, currentBarcode.loc.y, motherPoint.x, motherPoint.y);
+    stroke(0);
+    line(x, y, fatherX, fatherY);
+    line(x, y, motherX, motherY);
+    noStroke();
   }
 
 
