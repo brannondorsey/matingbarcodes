@@ -28,6 +28,7 @@ class DataVisualization {
       x = map(currentBarcode.timeStamp, minDist, maxDist, 100, width-100);
       y = mapY(currentType);
       s = map(currentBarcode.scale, 1.5, 3.5, 10, 20);
+      createAncestry(i, currentBarcode);
       drawAncestry(i, currentBarcode);
       //Ball b = (Ball)balls.get(i);
       fill(currentBarcode.c);
@@ -60,6 +61,9 @@ class DataVisualization {
     else return 0;
   }
 
+  //createAncestry();
+  //drawAncestry();
+  
   void drawAncestry(int i, Barcode currentBarcode) {
     int index = barcodesData.indexOf(currentBarcode);
     for (int j = 0; j < index-1; j++) {
@@ -81,6 +85,17 @@ class DataVisualization {
       }
     }
     stroke(0);
+//    float fX2 = random(x, fatherX)+random(-100, 100);
+//    float fY2 = random(y, fatherY)+random(-100, 100);
+//    float fX3 = random(x, fatherX)+random(-100, 100);
+//    float fY3 = random(y, fatherY)+random(-100, 100);
+//    float mX2 = random(x, motherX)+random(-100, 100);
+//    float mY2 = random(y, motherY)+random(-100, 100);
+//    float mX3 = random(x, motherX)+random(-100, 100);
+//    float mY3 = random(y, motherY)+random(-100, 100);
+//    noFill();
+//    bezier(x, y, fX2, fY2, fX3, fY3, fatherX, fatherY);
+//    bezier(x, y, mX2, mY2, mX3, mY3, motherX, motherY);
     line(x, y, fatherX, fatherY);
     line(x, y, motherX, motherY);
     noStroke();

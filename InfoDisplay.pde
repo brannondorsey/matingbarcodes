@@ -79,6 +79,7 @@ class InfoDisplay {
     String scale = "scale";
     String tall = "height";
     String speed = "speed";
+    float startLine = 40;
     float textS = 23;
     float textPadding = 15;
     float buttonHeight = rectHeight*2;
@@ -91,12 +92,12 @@ class InfoDisplay {
       cursor(HAND);
       fillColor = color(155);
       if(clicked) dataVis.displayValue = scale;
-      clicked = false; //reset clicked value to false
     }
     else {
       cursor(ARROW);
       fillColor = color(0);
     }
+    clicked = false; //reset clicked value to false
   }
 
   //used only for dataVis controls 
