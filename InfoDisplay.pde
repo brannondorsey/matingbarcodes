@@ -19,12 +19,6 @@ class InfoDisplay {
     timer = new Timer(3000);
   }
 
-  //    println("total population is "+total);
-  //    println("Average size is "+avgHeight);
-  //    println("Average speed is "+avgSpeed);
-  //    println("Average life expectantcy is "+avgLifeEx);
-  //    println();
-
   void displayStats() {
     textFont(font);
     textSize(tall);

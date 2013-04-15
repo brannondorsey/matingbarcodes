@@ -24,8 +24,9 @@ class DataVisualization {
 
     for (int i = 0; i < barcodesData.size(); i++) {
       Barcode currentBarcode = (Barcode) barcodesData.get(i);
+      float currentType = getTypeValue(currentBarcode);
       x = map(currentBarcode.timeStamp, minDist, maxDist, 100, width-100);
-      y = mapY(currentBarcode.scale);//map(currentBarcode.tall, 10, 100, height, 100);
+      y = mapY(currentType);//map(currentBarcode.tall, 10, 100, height, 100);
       //float y = map(currentBarcode.tall, 0, 50, info.rectHeight, height-100);
       //y -= height;
       s = map(currentBarcode.scale, 1.5, 3.5, 10, 20);
@@ -66,15 +67,18 @@ class DataVisualization {
     for (int j = 0; j < index-1; j++) {
       Barcode fatherBarcode = (Barcode) barcodesData.get(j);
       Barcode motherBarcode = (Barcode) barcodesData.get(j);
+      float currentFatherType = getTypeValue(fatherBarcode);
+      float currentMotherType = getTypeValue(motherBarcode);
+
       if (currentBarcode.fatherText.equals(fatherBarcode.text)) { 
         fatherX = map(fatherBarcode.timeStamp, minDist, maxDist, 100, width-100);
-        fatherY = mapY(fatherBarcode.scale);
+        fatherY = mapY(currentFatherType);
         //fatherPoint.set(fatherBarcode.loc.x, fatherBarcode.loc.y, 0);
       }
       if (currentBarcode.motherText.equals(motherBarcode.text)) {
 
         motherX = map(motherBarcode.timeStamp, minDist, maxDist, 100, width-100);
-        motherY = mapY(motherBarcode.scale);
+        motherY = mapY(currentMotherType);
         //motherPoint.set(motherBarcode.loc.x, motherBarcode.loc.y, 0);
       }
     }
