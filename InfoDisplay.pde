@@ -2,8 +2,10 @@ class InfoDisplay {
 
   float startLine = 40;
   int textPadding = 15;
+  int textMargin = 55;
   int rectHeight  = 55;
-  color fillColor = 0; //color for default button states
+  color fillColor = 255; //color for default button states
+  color textColor = 0;
   color warningColor = #A00000;
   boolean clicked = false;
 
@@ -12,12 +14,21 @@ class InfoDisplay {
 
   Timer timer;
   boolean timerGoing = false;
-
-
+  Button[] buttons = new Button[3];
+  
   InfoDisplay() {
     textS = 30; 
     font = createFont("visitor TT2 BRK", textS);
     timer = new Timer(3000);
+    float textS = 23;
+    float x = startLine;
+    float y = rectHeight*2;
+    String[] buttonNames = {"scale", "height", "speed"};
+    for(int i = 0; i < buttonNames.length; i++){
+      buttons[i] = new Button(x, y, buttonNames[i], textS);
+      x += textWidth(buttonNames[i])+textMargin;
+    }
+    
   }
 
   void displayStats() {
@@ -75,38 +86,18 @@ class InfoDisplay {
     text(text, width-textWide-startLine, (rectHeight/2)+(textS/3)+rectHeight);
   }
 
-  void displayDataVisControls() {
-    String scale = "scale";
-    String tall = "height";
-    String speed = "speed";
-    float startLine = 40;
-    float textS = 23;
-    float textPadding = 15;
-    float buttonHeight = rectHeight*2;
-    textSize(textS);
-    fill(fillColor);
-    rect(startLine, buttonHeight, textWidth(scale)+textPadding*2, rectHeight-textS);
-    fill(255);
-    text(scale, startLine+textPadding, buttonHeight+textS-3);
-    if (isOverDataControllerButton(mouseX, mouseY, scale, textS, textPadding, startLine, buttonHeight)) {
-      cursor(HAND);
-      fillColor = color(155);
-      if(clicked) dataVis.displayValue = scale;
+  void displayDataVisButtons(){
+    for(int i = 0; i < buttons.length; i++){
+      buttons[i].checkIsOver();
+      buttons[i].display();
+      println("the "+buttons[i].buttonText+"button textWidth() is "+textWidth(buttons[i].buttonText));
     }
-    else {
-      cursor(ARROW);
-      fillColor = color(0);
-    }
-    clicked = false; //reset clicked value to false
   }
-
-  //used only for dataVis controls 
-  boolean isOverDataControllerButton(int mx, int my, String type, float textS, float textPadding, float startX, float startY) {
-    if (mx >= startX &&
-      mx <= startX+textWidth(type)+textPadding*2 &&
-      my >= startY &&
-      my <= startY+rectHeight-textS) return true;
-    else return false;
+  
+  void over(String type){
+    cursor(HAND);
+    fillColor = color(#1E1498);
+    textColor = color(255);
   }
 }
 

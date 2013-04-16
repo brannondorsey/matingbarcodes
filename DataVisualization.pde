@@ -28,7 +28,7 @@ class DataVisualization {
       x = map(currentBarcode.timeStamp, minDist, maxDist, 100, width-100);
       y = mapY(currentType);
       s = map(currentBarcode.scale, 1.5, 3.5, 10, 20);
-      createAncestry(i, currentBarcode);
+     // createAncestry(i, currentBarcode);
       drawAncestry(i, currentBarcode);
       //Ball b = (Ball)balls.get(i);
       fill(currentBarcode.c);
@@ -85,6 +85,7 @@ class DataVisualization {
       }
     }
     stroke(0);
+    //below is code to implement bezier curves instead of lines.
 //    float fX2 = random(x, fatherX)+random(-100, 100);
 //    float fY2 = random(y, fatherY)+random(-100, 100);
 //    float fX3 = random(x, fatherX)+random(-100, 100);
