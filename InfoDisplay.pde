@@ -88,16 +88,18 @@ class InfoDisplay {
 
   void displayDataVisButtons(){
     for(int i = 0; i < buttons.length; i++){
-      buttons[i].checkIsOver();
       buttons[i].display();
-      println("the "+buttons[i].buttonText+"button textWidth() is "+textWidth(buttons[i].buttonText));
+      buttons[i].checkIsOver(); 
     }
+    if(isOverSomething()) cursor(HAND);
+    else cursor(ARROW);
   }
   
-  void over(String type){
-    cursor(HAND);
-    fillColor = color(#1E1498);
-    textColor = color(255);
+  boolean isOverSomething(){
+    for(int i = 0; i <buttons.length; i++){
+      if(buttons[i].isOver(mouseX, mouseY)) return true;
+    }
+    return false;
   }
 }
 

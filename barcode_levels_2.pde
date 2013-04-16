@@ -12,7 +12,7 @@ LevelController levelCont;
 DataVisualization dataVis;
 
 void setup() {
-  size(displayWidth, displayHeight/2);
+  size(displayWidth, displayHeight);
   noStroke();
   smooth();
   frameRate(30);
@@ -92,5 +92,8 @@ void mousePressed() {
     }
   }
   info.clicked = true;
+  for(int i = 0; i<info.buttons.length; i++){
+    if(info.buttons[i].isOver(mouseX, mouseY)) info.buttons[i].makeSelected();
+  }
 }
 

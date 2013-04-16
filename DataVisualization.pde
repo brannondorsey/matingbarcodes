@@ -11,6 +11,12 @@ class DataVisualization {
     balls = new ArrayList();
     displayValue = "tall";
   }
+  
+  void updateType(String type){
+    if (type.equals("height")) type = "tall";
+    displayValue = type;
+    println("display type is "+displayValue);
+  }
 
   void displayData() {
     fill(255, 100);
@@ -50,8 +56,6 @@ class DataVisualization {
     }
     minOutput = min(allValues);
     maxOutput = max(allValues);
-    println("max output is "+maxOutput);
-    println("min output is "+minOutput);
   }
 
   float getTypeValue(Barcode b) {

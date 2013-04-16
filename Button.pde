@@ -34,18 +34,20 @@ class Button {
     //reset colors
     fillColor = color(255);
     textColor = color(0);
-
-    if(isOver(mouseX, mouseY)){
-      cursor(HAND);
+    
+    if(selected){
+      fillColor = color(0);
+      textColor = color(255);
+    }
+    else if(isOver(mouseX, mouseY)){
       fillColor = color(#1E1498);
       textColor = color(255);
     }
-    if(isOver(mouseX, mouseY) && clicked) makeSelected();
   }
 
   boolean isOver(int mx, int my) {
     if (mx >= x &&
-      mx <= x+textWidth(buttonText)+textPadding &&
+      mx <= x+textWidth(buttonText)+textPadding*2 &&
       my >= y &&
       my <= y+textS+textPadding) return true;
     else return false;
@@ -55,6 +57,7 @@ class Button {
     //reset all buttons selected variables because buttons are mutually exclusive 
     for(int i = 0; i<info.buttons.length; i++) info.buttons[i].selected = false; 
     selected = true;
+    dataVis.updateType(buttonText);
   }
 }
 
