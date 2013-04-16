@@ -15,7 +15,7 @@ class DataVisualization {
   void updateType(String type){
     if (type.equals("height")) type = "tall";
     displayValue = type;
-    println("display type is "+displayValue);
+    println("display type is ");
   }
 
   void displayData() {
@@ -33,7 +33,8 @@ class DataVisualization {
       float currentType = getTypeValue(currentBarcode);
       x = map(currentBarcode.timeStamp, minDist, maxDist, 100, width-100);
       y = mapY(currentType);
-      s = map(currentBarcode.scale, 1.5, 3.5, 10, 20);
+      float[] scaleExtremes = getScaleMinAndMax(); //returns min and max of all barcodes scales
+      s = map(currentBarcode.scale, scaleExtremes[0], scaleExtremes[1], 10, 20);
      // createAncestry(i, currentBarcode);
       drawAncestry(i, currentBarcode);
       //Ball b = (Ball)balls.get(i);
@@ -56,6 +57,16 @@ class DataVisualization {
     }
     minOutput = min(allValues);
     maxOutput = max(allValues);
+  }
+  
+  float[] getScaleMinAndMax(){
+    float[] scaleValues = new float[barcodesData.size()];
+    for (int i = 0; i < scaleValues.length; i++) {
+      Barcode b = (Barcode) barcodesData.get(i);
+      scaleValues[i] = b.scale;
+    }
+    float[] minAndMax = {min(scaleValues),max(scaleValues)};
+    return minAndMax;
   }
 
   float getTypeValue(Barcode b) {
