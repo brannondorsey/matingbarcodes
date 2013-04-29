@@ -11,12 +11,9 @@ class XMLData {
 
   void getLevelData() {
     for (int i = 0; i<data.length; i++) {
-      //get level number
-      XMLElement levelNumberNode = data[i].getChild(0).getChild(0);
-      String levelNumber = levelNumberNode.getText();
-
+ 
       //get level objective
-      XMLElement objectiveNode = data[i].getChild(1).getChild(0);
+      XMLElement objectiveNode = data[i].getChild(0).getChild(0);
       String objective = objectiveNode.getText();
 
       //get level completion requirements
@@ -27,7 +24,7 @@ class XMLData {
       float[] targetValue = new float[index];
 
       for (int j = 0; j < index; j++) {
-        XMLElement requirement = data[i].getChild(2+j);
+        XMLElement requirement = data[i].getChild(1+j);
         XMLElement typeNode = requirement.getChild(0);
         type[j] = typeNode.getChild(0).getText();
         XMLElement neededToPassNode = requirement.getChild(1);
@@ -35,7 +32,7 @@ class XMLData {
         XMLElement targetValueNode = requirement.getChild(2);
         targetValue[j] = float(targetValueNode.getChild(0).getText());
       }
-      levelCont.levels[i] = new Level(levelNumber, objective, type, neededToPass, targetValue);
+      levelCont.levels[i] = new Level(i, objective, type, neededToPass, targetValue);
     }
   }
 }
