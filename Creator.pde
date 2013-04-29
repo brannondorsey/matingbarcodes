@@ -46,7 +46,7 @@ class Creator {
     OrigAvgSpeed     = avgSpeed;
     OrigSpeedStdDev  = speedStdDev;
     OrigLifeExTall   = avgLifeEx;
-    OrigLifeStdDev = lifeStdDev;
+    OrigLifeStdDev   = lifeStdDev;
   }
 
   //mates two barcode creatures
@@ -128,6 +128,7 @@ class Creator {
     int b = (int) generator.nextGaussian()*colorStdDev+avgB;
     color c = color(r, g, b);
     //Barcode(int _tall, int _lifeEx, int _speed, String _text, Color c)
+    abstractBars.add(new AbstractBarcode(text, fatherText, motherText, ));
     barcodes.add(new Barcode(scale, tall, lifeEx, speed, text, c, fatherText, motherText));
     dataVis.barcodesData.add(new Barcode(scale, tall, lifeEx, speed, text, c, fatherText, motherText));
   }

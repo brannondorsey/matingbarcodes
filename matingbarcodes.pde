@@ -10,19 +10,22 @@ Calculator stats;
 InfoDisplay info;
 LevelController levelCont;
 DataVisualization dataVis;
+ArrayList<AbstractBarcode> abstractBars;
 
 void setup() {
   size(displayWidth, displayHeight);
   noStroke();
   smooth();
   frameRate(30);
-
+  
+  abstractBars = new ArrayList<AbstractBarcode>();
+  
   stats = new Calculator();
   info = new InfoDisplay();
   creator = new Creator();
   levelCont = new LevelController();
   dataVis = new DataVisualization();
-
+  
   xmlIO = new XMLInOut(this);
   xmlIO.loadElement("data.xml");
   xmlEvent(new XMLElement("levels"));
@@ -69,7 +72,7 @@ void draw() {
 void keyPressed() {
   if (key == '\n' && 
     text.length() > 11) {
-    creator.newBarcode(text, "", "");
+    abstractBars.add(new AbstractBarcode(text, "", "", millis()));
     text = "";
   }
   else text += key;
