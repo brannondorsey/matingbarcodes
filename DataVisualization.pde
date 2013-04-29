@@ -15,7 +15,6 @@ class DataVisualization {
   void updateType(String type){
     if (type.equals("height")) type = "tall";
     displayValue = type;
-    println("display type is ");
   }
 
   void displayData() {

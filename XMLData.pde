@@ -18,7 +18,7 @@ class XMLData {
 
       //get level completion requirements
       int numRequirements = 0;
-      int index = data[i].countChildren()-2;
+      int index = data[i].countChildren()-1;
       String[] type = new String[index];
       int[] neededToPass = new int[index];
       float[] targetValue = new float[index];

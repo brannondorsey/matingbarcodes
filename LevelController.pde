@@ -18,17 +18,17 @@ class LevelController {
 
   boolean levelComplete() {
     Level currentLevel = levels[curLevel];
-
+    
     for (int i = 0; i<currentLevel.type.length; i++) {
+      println("got here");
       float requirement = 0;
       if(currentLevel.type[i].equals("tall") || currentLevel.type[i].equals("-tall")) requirement = stats.avgTall;
       else if(currentLevel.type[i].equals("scale") || currentLevel.type[i].equals("-scale")) requirement = stats.avgScale;
       else if(currentLevel.type[i].equals("speed") || currentLevel.type[i].equals("-speed")) requirement = stats.avgSpeed;
       else if(currentLevel.type[i].equals("lifespan") || currentLevel.type[i].equals("-lifespan")) requirement = stats.avgLifeEx;
-//      println("the current avg is "+requirement);
-//      println("the goal is "+currentLevel.targetValue[i]);
-//      println("the type is  "+currentLevel.type[i]);
-      
+//      else if(currentLevel.type[i].equals("red")) requirement = stats.avgRed;
+//      else if(currentLevel.type[i].equals("green")) requirement = stats.avgGreen;
+//      else if(currentLevel.type[i].equals("blue")) requirement = stats.avgBlue;
       if (requirement != 0) {
         if (avgPasses(requirement, currentLevel.targetValue[i], currentLevel.type[i]) &&
           stats.total >= currentLevel.neededToPass[i]) {
@@ -37,15 +37,6 @@ class LevelController {
         }
         else break;
       }
-//      else if (currentLevel.type[i].equals("speed")) {
-////        if (stats.avgSpeed >= currentLevel.targetValue[i] &&
-//          if(avgPasses(stats.avgSpeed, currentLevel.targetValue[i], currentLevel.type[i]) &&
-//          stats.total >= currentLevel.neededToPass[i]) {
-//          if (i == currentLevel.type.length-1) return true;
-//          continue;
-//        }
-//        else break;
-//      }
       else if (currentLevel.type[i].equals("color")) {
         if (stats.avgRed >= currentLevel.targetValue[i] &&
           stats.avgGreen >= currentLevel.targetValue[i] &&

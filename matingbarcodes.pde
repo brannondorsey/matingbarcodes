@@ -61,8 +61,8 @@ void draw() {
     creator.resetBarcodes();
   }
   info.displayLevelScreen();
-  //info.displayDataVisButtons();
-  //if(dataVis.barcodesData.size() > 0) dataVis.displayData();
+//  info.displayDataVisButtons();
+//  if(dataVis.barcodesData.size() > 0) dataVis.displayData();
   clicked = false;
 }
 

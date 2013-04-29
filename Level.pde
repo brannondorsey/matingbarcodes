@@ -8,12 +8,12 @@ class Level {
   //levels[i] = new Level(levelNumber, objective, type, neededToPass, targetValue);
   Level(int id, String _objective, String[] _type, int[] _neededToPass, float[] _targetValue) {
     levelNumber = getLevelNumber(id);
-    println("this levels number is "+levelNumber);
     objective = _objective;
     type = _type;
     neededToPass = _neededToPass;
     targetValue = _targetValue;
-  } 
+    println("this levels number requirements are "+type.length);
+  }
 
   String getLevelNumber(int i) {
     String level;
