@@ -26,7 +26,7 @@ void setup() {
   xmlIO = new XMLInOut(this);
   xmlIO.loadElement("data.xml");
   xmlEvent(new XMLElement("levels"));
-  //info.startTimer(); //triggers first level display
+  info.startTimer(); //triggers first level display
 }
 
 void xmlEvent(XMLElement element) {
@@ -61,8 +61,8 @@ void draw() {
     creator.resetBarcodes();
   }
   info.displayLevelScreen();
-//  info.displayDataVisButtons();
-//  if(dataVis.barcodesData.size() > 0) dataVis.displayData();
+  info.displayDataVisButtons();
+  if(dataVis.barcodesData.size() > 0) dataVis.displayData();
   clicked = false;
 }
 

@@ -8,6 +8,7 @@ class InfoDisplay {
   color textColor = 0;
   color warningColor = #A00000;
   boolean clicked = false;
+  boolean startingGame = true;
 
   PFont font;
   int textS;
@@ -72,7 +73,8 @@ class InfoDisplay {
     }
     if (timerGoing && timer.isFinished()) {
       timerGoing = false;
-      creator.resetBarcodes();
+      if(!startingGame) creator.resetBarcodes();
+      startingGame = false;
     }
   }
 

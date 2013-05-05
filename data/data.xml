@@ -69,7 +69,7 @@
         <requirement>
             <type>tall</type>
             <neededToPass>6</neededToPass>
-            <targetValue>70</targetValue>
+            <targetValue>77</targetValue>
         </requirement>
         <requirement>
             <type>-speed</type>
@@ -79,7 +79,7 @@
     </level>
     
     <level>
-        <objective>mate a short and fat community</objective>
+        <objective>mate a small and fat community</objective>
         <requirement>
             <type>-tall</type>
             <neededToPass>6</neededToPass>

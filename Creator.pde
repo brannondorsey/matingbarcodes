@@ -142,7 +142,7 @@ class Creator {
     barcodes.clear();
     resetAvgs();
     newBarcode(text1, last.fatherText, last.motherText);
-    newBarcode(text2, last.fatherText, last.motherText);
+    newBarcode(text2, secondToLast.fatherText, secondToLast.motherText);
   }
 
   //kills barcode creature

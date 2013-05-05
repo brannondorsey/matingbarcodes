@@ -74,9 +74,6 @@ class DataVisualization {
     else if (displayValue.equals("speed")) return b.speed;
     else return 0;
   }
-
-  //createAncestry();
-  //drawAncestry();
   
   void drawAncestry(int i, Barcode currentBarcode) {
     int index = barcodesData.indexOf(currentBarcode);
