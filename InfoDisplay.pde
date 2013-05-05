@@ -9,13 +9,14 @@ class InfoDisplay {
   color warningColor = #A00000;
   boolean clicked = false;
   boolean startingGame = true;
-
+  boolean viewingDataVis = false; //switch to freeze game mechanic while viewing data vis
+ 
   PFont font;
   int textS;
 
   Timer timer;
   boolean timerGoing = false;
-  Button[] buttons = new Button[3];
+  Button[] buttons = new Button[4];
   
   InfoDisplay() {
     textS = 30; 
@@ -23,13 +24,13 @@ class InfoDisplay {
     timer = new Timer(3000);
     float textS = 23;
     float x = startLine;
-    float y = rectHeight*2;
-    String[] buttonNames = {"scale", "height", "speed"};
-    for(int i = 0; i < buttonNames.length; i++){
+    float y = 20;
+    String[] buttonNames = {"scale", "height", "speed", "continue"};
+    for(int i = 0; i < buttonNames.length-1; i++){
       buttons[i] = new Button(x, y, buttonNames[i], textS);
       x += textWidth(buttonNames[i])+textMargin;
     }
-    
+    buttons[buttons.length-1] = new Button(width-200, height-50,"continue", textS);
   }
 
   void displayStats() {
@@ -53,9 +54,17 @@ class InfoDisplay {
   void startTimer() {
     timer.start();
     timerGoing = true;
-    println("timer started");
   }
 
+  void displayDataVis(){
+    if(dataVis.barcodesData.size() > 0) dataVis.displayData();
+    displayDataVisButtons();
+  }
+  
+  void startNextLevel(){
+    startTimer();
+  }
+  
   void displayLevelScreen() {
     if (timerGoing) {
       fill(0);
@@ -74,7 +83,6 @@ class InfoDisplay {
     if (timerGoing && timer.isFinished()) {
       timerGoing = false;
       if(!startingGame) creator.resetBarcodes();
-      startingGame = false;
     }
   }
 

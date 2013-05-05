@@ -6,10 +6,11 @@ class DataVisualization {
   ArrayList balls; 
   String displayValue;
 
+
   DataVisualization() {
     barcodesData = new ArrayList();
     balls = new ArrayList();
-    displayValue = "tall";
+    displayValue = "tall";  
   }
   
   void updateType(String type){
@@ -18,7 +19,7 @@ class DataVisualization {
   }
 
   void displayData() {
-    fill(255, 100);
+    fill(255);
     rect(0, 0, width, height);
     int lastIndex = barcodesData.size()-1;
     Barcode firstBarcode = (Barcode) barcodesData.get(0);
@@ -78,20 +79,18 @@ class DataVisualization {
   void drawAncestry(int i, Barcode currentBarcode) {
     int index = barcodesData.indexOf(currentBarcode);
     for (int j = 0; j < index-1; j++) {
-      Barcode fatherBarcode = (Barcode) barcodesData.get(j);
-      Barcode motherBarcode = (Barcode) barcodesData.get(j);
-      float currentFatherType = getTypeValue(fatherBarcode);
-      float currentMotherType = getTypeValue(motherBarcode);
+      Barcode ancester = (Barcode) barcodesData.get(j);
+      float ancesterType = getTypeValue(ancester);
 
-      if (currentBarcode.fatherText.equals(fatherBarcode.text)) { 
-        fatherX = map(fatherBarcode.timeStamp, minDist, maxDist, 100, width-100);
-        fatherY = mapY(currentFatherType);
+      if (currentBarcode.fatherText.equals(ancester.text)) { 
+        fatherX = map(ancester.timeStamp, minDist, maxDist, 100, width-100);
+        fatherY = mapY(ancesterType);
         //fatherPoint.set(fatherBarcode.loc.x, fatherBarcode.loc.y, 0);
       }
-      if (currentBarcode.motherText.equals(motherBarcode.text)) {
+      if (currentBarcode.motherText.equals(ancester.text)) {
 
-        motherX = map(motherBarcode.timeStamp, minDist, maxDist, 100, width-100);
-        motherY = mapY(currentMotherType);
+        motherX = map(ancester.timeStamp, minDist, maxDist, 100, width-100);
+        motherY = mapY(ancesterType);
         //motherPoint.set(motherBarcode.loc.x, motherBarcode.loc.y, 0);
       }
     }

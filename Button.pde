@@ -58,6 +58,10 @@ class Button {
     for(int i = 0; i<info.buttons.length; i++) info.buttons[i].selected = false; 
     selected = true;
     dataVis.updateType(buttonText);
+    if(buttonText.equals("continue")){
+      info.startNextLevel();
+      info.viewingDataVis = false;
+    }
   }
 }
 

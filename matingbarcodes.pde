@@ -45,7 +45,7 @@ void draw() {
       currentBarcode.update();
       currentBarcode.display();
       stats.addAvgs(i);
-      if (currentBarcode.life.isFinished()) creator.kill(currentBarcode);
+      if (currentBarcode.life.isFinished() && creator.barcodes.size() > 1) creator.kill(currentBarcode);
     }
   }
   stats.calcAvgs();
@@ -57,13 +57,17 @@ void draw() {
   info.displayLevelInfo();
   if (levelCont.levelComplete()) {
     levelCont.nextLevel();
-    info.startTimer();
-    creator.resetBarcodes();
+    info.viewingDataVis = true;
+    info.startingGame = false; //game has now started
   }
+  if(info.viewingDataVis == true && !info.startingGame){
+    info.displayDataVis();
+    //info.viewingDataVis = true;
+  }
+  else cursor(ARROW);
   info.displayLevelScreen();
-  info.displayDataVisButtons();
-  if(dataVis.barcodesData.size() > 0) dataVis.displayData();
   clicked = false;
+  
 }
 
 void keyPressed() {

@@ -12,7 +12,6 @@ class Level {
     type = _type;
     neededToPass = _neededToPass;
     targetValue = _targetValue;
-    println("this levels number requirements are "+type.length);
   }
 
   String getLevelNumber(int i) {
