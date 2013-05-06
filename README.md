@@ -2,6 +2,7 @@
 
 ##An Experiment in Mating Barcodes
 
+
 An Experiment in Mating Barcodes is a video game where players build their own simulated 
 community of animated and interactive Universal Product Code (UPC) barcodes. Players 
 use a usb barcode scanner both as a game controller and a tool to scan real barcodes 
