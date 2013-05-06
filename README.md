@@ -1,8 +1,8 @@
-#An Experiment in Mating Barcodes
-
 ![Barcodes Image](barcode_collage.jpg)
 
-An Experiment in Mating Barcodes is video game where players build their own simulated 
+##An Experiment in Mating Barcodes
+
+An Experiment in Mating Barcodes is a video game where players build their own simulated 
 community of animated and interactive Universal Product Code (UPC) barcodes. Players 
 use a usb barcode scanner both as a game controller and a tool to scan real barcodes 
 into the game from the objects around them. 
@@ -17,10 +17,9 @@ them on-screen. A child barcode appears with the most desirable attributes from
 both parents. For instance, if a barcode’s father is fast, and its mother is tall, the
  child barcode will most likely be both fast and tall. Player’s must breed on screen 
  barcodes with each other in different ways in order to meet each level’s objective 
- and progress through the game. 
-
-At the end of each level an interactive “family tree” appears to help visualize 
-the ancestral relationships between every barcode in the game so far.
+ and progress through the game. At the end of each level an interactive “family tree” 
+ appears to help visualize the ancestral relationships between every barcode in the 
+ game so far.
 
 An Experiment in Mating Barcodes is both a game and a critical response to the
  ways that a system of manufactured objects exist and operate in contemporary life. 
