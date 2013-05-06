@@ -6,7 +6,7 @@
         <requirement>
             <type>tall</type>
             <neededToPass>5</neededToPass>
-            <targetValue>30</targetValue>
+            <targetValue>34</targetValue>
         </requirement>
     </level>
     
@@ -20,7 +20,7 @@
     </level>
     
     <level>
-        <objective>mate an elderly community</objective>
+        <objective>mate a healthy community</objective>
         <requirement>
             <type>lifespan</type>
             <neededToPass>7</neededToPass>
@@ -33,7 +33,7 @@
         <requirement>
             <type>speed</type>
             <neededToPass>6</neededToPass>
-            <targetValue>5</targetValue>
+            <targetValue>6</targetValue>
         </requirement>
     </level>
     
@@ -42,7 +42,7 @@
         <requirement>
             <type>color</type>
             <neededToPass>5</neededToPass>
-            <targetValue>20</targetValue>
+            <targetValue>30</targetValue>
         </requirement>
     </level>
     
@@ -50,8 +50,8 @@
         <objective>mate a short community</objective>
         <requirement>
             <type>-tall</type>
-            <neededToPass>7</neededToPass>
-            <targetValue>30</targetValue>
+            <neededToPass>5</neededToPass>
+            <targetValue>28</targetValue>
         </requirement>
     </level>
     
@@ -60,7 +60,7 @@
         <requirement>
             <type>red</type>
             <neededToPass>6</neededToPass>
-            <targetValue>75</targetValue>
+            <targetValue>80</targetValue>
         </requirement>
     </level>
     

@@ -4,7 +4,7 @@ class Creator {
   ArrayList mateQueue;
 
   //max population
-  int maxPop = 10;
+  int maxPop = 12;
 
   //tall
   int avgTall     = 30;

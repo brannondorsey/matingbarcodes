@@ -30,7 +30,7 @@ class InfoDisplay {
       buttons[i] = new Button(x, y, buttonNames[i], textS);
       x += textWidth(buttonNames[i])+textMargin;
     }
-    buttons[buttons.length-1] = new Button(width-200, height-50,"continue", textS);
+    buttons[buttons.length-1] = new Button(width-150, height-50,"continue", textS);
   }
 
   void displayStats() {
@@ -53,6 +53,7 @@ class InfoDisplay {
 
   void startTimer() {
     timer.start();
+    info.buttons[1].makeSelected();
     timerGoing = true;
   }
 
@@ -87,6 +88,7 @@ class InfoDisplay {
   }
 
   void displayOverpopulated() {
+    noStroke();
     if (frameCount/5 % 2 == 0) fill(warningColor, 175);
     else fill(warningColor);
     rect(0, rectHeight, width, rectHeight);

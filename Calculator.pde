@@ -52,23 +52,5 @@ class Calculator {
       avgBlue   /= total;
     }
   }
-
-//+" / "+stats.percentLevelComplete()+"% complete"
-//^^ for text in infodisplay
-//  float percentLevelComplete() {
-//    float requirement = 0;
-//    float percentTotal = 0;
-//    Level currentLevel = levelCont.levels[levelCont.curLevel];
-//    float[] percent = new float[currentLevel.type.length];
-//    for (int i = 0; i < percent.length; i++) {
-//      if (currentLevel.type[i].equals("speed")) requirement = avgSpeed;
-//      else if (currentLevel.type[i].equals("tall")) requirement = avgTall;
-//      percent[i] = requirement/currentLevel.targetValue[i];
-//      percentTotal += percent[i];
-//    }
-//    float percentAverage = percentTotal/percent.length;
-//    percentTotal = int(percentTotal*100); 
-//    return percentTotal;
-//  }
 }
 
