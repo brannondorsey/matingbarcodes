@@ -12,7 +12,7 @@ LevelController levelCont;
 DataVisualization dataVis;
 
 void setup() {
-  size(displayWidth, displayHeight/2);
+  size(displayWidth, displayHeight*3/5);
   noStroke();
   smooth();
   frameRate(30);

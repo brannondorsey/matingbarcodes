@@ -39,7 +39,7 @@ class InfoDisplay {
     fill(0);
     rect(0, 0, width, rectHeight);
     fill(255);
-    text("population stats /   population: "+stats.total+" | size: "+String.format("%.2f", stats.avgScale)+" | height: "+String.format("%.2f", stats.avgTall)+" | speed: "+String.format("%.2f", stats.avgSpeed)+" | lifespan: "+String.format("%.2f", stats.avgLifeEx/1000)+" sec", startLine, (rectHeight/2)+(textS/3));
+    text("population stats //   population: "+stats.total+" /  size: "+String.format("%.2f", stats.avgScale)+" /  height: "+String.format("%.2f", stats.avgTall)+" /  speed: "+String.format("%.2f", stats.avgSpeed)+" /  lifespan: "+String.format("%.2f", stats.avgLifeEx/1000)+" sec", startLine, (rectHeight/2)+(textS/3));
   }
 
   void displayLevelInfo() {
@@ -48,7 +48,7 @@ class InfoDisplay {
     textSize(textS*fontIncrease);
     fill(0);
     Level currentLevel = levelCont.levels[levelCont.curLevel];
-    text("Level "+currentLevel.levelNumber+" | "+currentLevel.objective, startLine, height-textS*fontIncrease);
+    text("Level "+currentLevel.levelNumber+" // "+currentLevel.objective, startLine, height-textS*fontIncrease);
   }
 
   void startTimer() {

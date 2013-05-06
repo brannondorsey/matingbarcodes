@@ -8,7 +8,7 @@ class LevelController {
   Level[] levels;
 
   LevelController() {
-    curLevel = 1; //number for level you want
+    curLevel = 5; //number for level you want
     curLevel -= 1;
   }
 
@@ -37,9 +37,21 @@ class LevelController {
         else break;
       }
       else if (currentLevel.type[i].equals("color")) {
+            println("the red value is "+stats.avgRed);
+            println("the green value is "+stats.avgGreen);
+            println("the blue value is "+stats.avgBlue);
         if (stats.avgRed >= currentLevel.targetValue[i] &&
           stats.avgGreen >= currentLevel.targetValue[i] &&
           stats.avgBlue >= currentLevel.targetValue[i] &&
+          stats.total >= currentLevel.neededToPass[i] ||
+          stats.avgRed >= currentLevel.targetValue[i]*2 &&
+          stats.avgGreen >= currentLevel.targetValue[i]*2 &&
+          stats.total >= currentLevel.neededToPass[i] ||
+          stats.avgGreen >= currentLevel.targetValue[i]*2 &&
+          stats.avgBlue >= currentLevel.targetValue[i]*2 &&
+          stats.total >= currentLevel.neededToPass[i] ||
+          stats.avgRed >= currentLevel.targetValue[i]*2 &&
+          stats.avgBlue >= currentLevel.targetValue[i]*2 &&
           stats.total >= currentLevel.neededToPass[i]) {
           if (i == currentLevel.type.length-1) return true;
           continue;

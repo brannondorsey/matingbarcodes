@@ -6,7 +6,7 @@
         <requirement>
             <type>tall</type>
             <neededToPass>5</neededToPass>
-            <targetValue>34</targetValue>
+            <targetValue>45</targetValue>
         </requirement>
     </level>
     
@@ -33,7 +33,7 @@
         <requirement>
             <type>speed</type>
             <neededToPass>6</neededToPass>
-            <targetValue>6</targetValue>
+            <targetValue>5.7</targetValue>
         </requirement>
     </level>
     
@@ -42,7 +42,7 @@
         <requirement>
             <type>color</type>
             <neededToPass>5</neededToPass>
-            <targetValue>30</targetValue>
+            <targetValue>25</targetValue>
         </requirement>
     </level>
     
@@ -60,7 +60,7 @@
         <requirement>
             <type>red</type>
             <neededToPass>6</neededToPass>
-            <targetValue>80</targetValue>
+            <targetValue>70</targetValue>
         </requirement>
     </level>
     
@@ -79,7 +79,7 @@
     </level>
     
     <level>
-        <objective>mate a small and fat community</objective>
+        <objective>mate a tiny community</objective>
         <requirement>
             <type>-tall</type>
             <neededToPass>6</neededToPass>
