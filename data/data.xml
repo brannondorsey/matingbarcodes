@@ -50,7 +50,7 @@
         <objective>mate a short community</objective>
         <requirement>
             <type>-tall</type>
-            <neededToPass>5</neededToPass>
+            <neededToPass>6</neededToPass>
             <targetValue>28</targetValue>
         </requirement>
     </level>

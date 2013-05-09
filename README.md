@@ -1,9 +1,12 @@
-![Barcodes Image](barcode_collage.jpg)
-
 ##An Experiment in Mating Barcodes
 
+![Barcodes Collage](readme_images/collage.png)
 
-An Experiment in Mating Barcodes is a video game where players build their own simulated 
+![Gameplay Image](readme_images/gameplay.png)
+
+![Barcodes Data Visualization](readme_images/point_visualization.png)
+
+ *An Experiment in Mating Barcodes* is a video game where players build their own simulated 
 community of animated and interactive Universal Product Code (UPC) barcodes. Players 
 use a usb barcode scanner both as a game controller and a tool to scan real barcodes 
 into the game from the objects around them. 
@@ -22,7 +25,7 @@ both parents. For instance, if a barcode’s father is fast, and its mother is t
  appears to help visualize the ancestral relationships between every barcode in the 
  game so far.
 
-An Experiment in Mating Barcodes is both a game and a critical response to the
+ *An Experiment in Mating Barcodes* is both a game and a critical response to the
  ways that a system of manufactured objects exist and operate in contemporary life. 
 
 Products, now more than ever, are nonrepresentative of natural growth. As methods of
@@ -30,6 +33,6 @@ fabrication and product design progress objects are becoming more abstracted fro
 the basic archetypes that have been associated with them. Objects, especially electronic
  devices, no longer look like combinations of the natural resources that they are made 
  up of. They seemingly exist as there own near impossible creations connected in no way 
- with the natural or biological world. An Experiment in Mating Barcodes attempts to 
+ with the natural or biological world. *An Experiment in Mating Barcodes* attempts to 
  highlight these ideas by creating a game using ideas of evolution and natural selection 
  by means of an abstracted consumer indexing system. 
